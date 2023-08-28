@@ -1,4 +1,5 @@
 import net from 'net';
+import { type } from 'os';
 import { WebSocket, WebSocketServer } from 'ws';
 
 const TCP_PORT = parseInt(process.env.TCP_PORT || '12000', 10);
@@ -14,7 +15,16 @@ tcpServer.on('connection', (socket) => {
 
         // HINT: what happens if the JSON in the received message is formatted incorrectly?
         // HINT: see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
-        let currJSON = JSON.parse(msg.toString());
+        let currJSON;
+        try {
+            currJSON = JSON.parse(msg.toString());
+        } catch(error) {
+            if (error instanceof SyntaxError) {
+                let msgString = JSON.stringify(msg);
+                let msgJSON = msgString.replace(/(\}\s*})/, '}');
+                currJSON = JSON.parse(msgJSON);
+            }
+        }
 
         websocketServer.clients.forEach(function each(client) {
             if (client.readyState === WebSocket.OPEN) {
