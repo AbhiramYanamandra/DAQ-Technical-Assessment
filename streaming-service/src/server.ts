@@ -21,6 +21,7 @@ tcpServer.on('connection', (socket) => {
         } catch(error) {
             if (error instanceof SyntaxError) {
                 let msgString = JSON.stringify(msg);
+                // regex code to catch the extra '}' and then replace it
                 let msgJSON = msgString.replace(/(\}\s*})/, '}');
                 currJSON = JSON.parse(msgJSON);
             }
