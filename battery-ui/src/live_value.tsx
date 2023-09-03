@@ -13,12 +13,6 @@ function LiveValue({ temp } : TemperatureProps) {
     setValueColour(temp > 80 ? 'red': 'green');
   }, [temp])
 
-  // let valueColour = 'white';
-  // if (temp > 80) {
-  //   valueColour = 'red'
-  // } 
-  // valueColour = 'green';
-
   return (
       <header className="live-value" style={{ color : valueColour }}>
         {`${temp.toString()}°C`}
