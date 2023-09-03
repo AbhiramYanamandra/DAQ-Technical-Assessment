@@ -6,7 +6,7 @@ import './App.css';
 function App() {
 
   const [temperature, setTemperature] = useState<number>(0);
-
+  
   const ws: any = useRef(null);
 
   useEffect(() => {

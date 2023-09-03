@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 interface TemperatureProps {
@@ -7,7 +7,17 @@ interface TemperatureProps {
 
 function LiveValue({ temp } : TemperatureProps) {
 
-  let valueColour = 'white';
+  const [valueColour, setValueColour] = useState('white');
+
+  useEffect(() => {
+    setValueColour(temp > 80 ? 'red': 'green');
+  }, [temp])
+
+  // let valueColour = 'white';
+  // if (temp > 80) {
+  //   valueColour = 'red'
+  // } 
+  // valueColour = 'green';
 
   return (
       <header className="live-value" style={{ color : valueColour }}>
