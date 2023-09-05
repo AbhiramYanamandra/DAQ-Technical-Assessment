@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import LiveValue from './live_value'
 import RedbackLogo from './redback_logo.jpg';
 import './App.css';
+import BattStatus from './batt_status'
 
 function App() {
 
@@ -38,10 +39,16 @@ function App() {
     <div className="App">
       <header className="App-header">
       <img src={RedbackLogo} className="redback-logo" alt="Redback Racing Logo"/>
-        <p className='value-title'>
-          Live Battery Temperature
-        </p>
+      <div className='card'>
+      <div className="battery-title">
+        <div className="value-title">Live Battery Temperature</div>
+        <div className="battery-status">
+          Battery Status:
+          <BattStatus temp={temperature}/>
+        </div>
+      </div>
         <LiveValue temp={temperature}/>
+      </div>
       </header>
     </div>
   );
