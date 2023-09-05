@@ -10,7 +10,7 @@ function BattStatus({ temp }: TemperatureProps) {
     const [textColour, setTextColour] = useState('white');
 
     useEffect(() => {
-        setBattText(temp > 80 ? 'Danger': 'Healthy');
+        setBattText(temp > 80 ? 'Danger 🕷️': 'Healthy 🕷️');
     }, [temp])
 
     useEffect(() => {
