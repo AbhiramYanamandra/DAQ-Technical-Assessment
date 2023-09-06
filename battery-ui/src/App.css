@@ -31,6 +31,23 @@
   gap: 10px;
 }
 
+.redback-logo {
+  max-width: calc(200px + 1vmin);
+  display: flex;
+  align-self: center;
+  padding: 1%;
+  border-radius: 25px;
+  border: 3px solid #52524f;
+  box-shadow: -10px 10px 5px grey;
+  border-width: thick;
+}
+
+.liveValue-Chart {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
 .live-value {
   /* width: 70%;
   height: 50%; */
@@ -43,17 +60,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.redback-logo {
-  max-width: calc(200px + 1vmin);
-  display: flex;
-  align-self: center;
-  padding: 1%;
-  border-radius: 25px;
-  border: 3px solid #52524f;
-  box-shadow: -10px 10px 5px grey;
-  border-width: thick;
 }
 
 .battery-title {

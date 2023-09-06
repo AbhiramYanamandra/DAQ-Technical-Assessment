@@ -3,6 +3,7 @@ import LiveValue from './live_value'
 import RedbackLogo from './redback_logo.jpg';
 import './App.css';
 import BattStatus from './batt_status'
+import ApexChart from './apexChart';
 
 function App() {
 
@@ -40,14 +41,17 @@ function App() {
       <header className="App-header">
       <img src={RedbackLogo} className="redback-logo" alt="Redback Racing Logo"/>
       <div className='card'>
-      <div className="battery-title">
-        <div className="value-title">Live Battery Temperature</div>
-        <div className="battery-status">
-          Battery Status:
-          <BattStatus temp={temperature}/>
-        </div>
+        <div className="battery-title">
+          <div className="value-title">Live Battery Temperature</div>
+          <div className="battery-status">
+            Battery Status:
+            <BattStatus temp={temperature}/>
+          </div>
       </div>
+      <div className='liveValue-Chart'>
         <LiveValue temp={temperature}/>
+        <ApexChart/>
+      </div>
       </div>
       </header>
     </div>
