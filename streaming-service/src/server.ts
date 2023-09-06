@@ -42,7 +42,7 @@ tcpServer.on('connection', (socket) => {
         if (currJSON.battery_temperature > maxSafeTemp) {
             temperatureIncidents.push(currJSON.timestamp);
             console.log(`${currJSON.timestamp} has been added to: ` + temperatureIncidents);
-            // clearTimeout(incidentTimer);
+            clearTimeout(incidentTimer);
             incidentTimer = setTimeout(() => {
                 if(temperatureIncidents.length >= 3) {
                     // Log in incidents in file name incidents.log
