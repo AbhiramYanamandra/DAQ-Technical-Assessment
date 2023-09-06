@@ -10,14 +10,8 @@ function LiveValue({ temp } : TemperatureProps) {
   const [valueColour, setValueColour] = useState('white');
 
   useEffect(() => {
-    setValueColour(temp > 80 ? 'red': 'green');
+    setValueColour(temp > 80 || temp < 20 ? 'red': 'green');
   }, [temp])
-
-  // let valueColour = 'white';
-  // if (temp > 80) {
-  //   valueColour = 'red'
-  // } 
-  // valueColour = 'green';
 
   return (
       <header className="live-value" style={{ color : valueColour }}>
