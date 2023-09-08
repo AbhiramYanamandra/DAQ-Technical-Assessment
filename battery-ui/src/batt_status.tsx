@@ -14,8 +14,8 @@ function BattStatus({ temp }: TemperatureProps) {
     }, [temp])
 
     useEffect(() => {
-        setTextColour(temp > 80? 'red': 'green');
-    })
+        setTextColour(temp > 80 || temp < 20 ? 'red': 'green');
+    }, [temp])
 
     return (
         <header className="status-live" style={{backgroundColor: textColour}}>
